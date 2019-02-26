@@ -59,8 +59,30 @@ class UserController extends Controller
         }
         $credentials = $request->only('email','password');
         if (Auth::attempt($credentials)) {
+            DB::table('users')
+                ->where('email',$request->email)
+                ->update([
+                    'attempt' => 0
+                ]);
             return redirect()->route('index');
         } else {
+            $user_attempt = DB::table('users')->where('email',$request->email)->first();
+            if($user_attempt){
+                DB::table('users')
+                ->where('email',$request->email)
+                ->update([
+                    'last_access'=>date('Y-m-d H:i:s'),
+                    'attempt' => $user_attempt->attempt+1
+                ]);
+            }
+            if($user_attempt->attempt+1 >= 3){
+                DB::table('users')
+                ->where('email',$request->email)
+                ->update([
+                    'active'=>0,
+                ]);
+            }
+            
             return redirect()->route('login-get')->with('fail_msg','Sai tài khoản hoặc mật khẩu');
         }
       
