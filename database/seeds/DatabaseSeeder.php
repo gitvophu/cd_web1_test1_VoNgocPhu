@@ -99,5 +99,11 @@ class DatabaseSeeder extends Seeder
             'created_at'=>date('Y-m-d h:i:s'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
+
+
+// // user
+// 	id	name	email	phone	password	remember_token	created_at	updated_at
+        
+
     }
 }

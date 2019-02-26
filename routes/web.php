@@ -20,3 +20,4 @@ Route::post('/login-post','UserController@login_post')->name('login-post');
 Route::get('/logout','UserController@logout')->name('logout');
 Route::get('/edit-profile','UserController@edit_profile')->name('edit-profile');
 Route::post('/edit-profile-post','UserController@edit_profile_post')->name('edit-profile-post');
+Route::post('/login-post','UserController@login_post')->name('login-post');

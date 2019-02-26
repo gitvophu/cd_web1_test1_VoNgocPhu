@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function register(){
-        
+
         return view('register');
     }
     public function postRegister(Request $request){
@@ -43,9 +43,11 @@ class UserController extends Controller
 
     }
     public function getLogin(){
+
         if(Auth::check()){
             return redirect()->route('index');
         }
+
         return view('login');
     }
     public function login_post(Request $request){
@@ -59,6 +61,7 @@ class UserController extends Controller
         }
         $credentials = $request->only('email','password');
         if (Auth::attempt($credentials)) {
+
             DB::table('users')
                 ->where('email',$request->email)
                 ->update([
@@ -82,12 +85,13 @@ class UserController extends Controller
                     'active'=>0,
                 ]);
             }
-            
             return redirect()->route('login-get')->with('fail_msg','Sai tài khoản hoặc mật khẩu');
-        }
+
+        } 
       
         
     }
+
     public function logout(){
         Auth::logout();
         return redirect()->route('login-get');
@@ -119,4 +123,5 @@ class UserController extends Controller
         
         return redirect()->route('edit-profile')->with('success',' Cập nhật thành công');
     }
+
 }

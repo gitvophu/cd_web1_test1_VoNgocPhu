@@ -24,6 +24,9 @@ class CreateFlightTable extends Migration
             $table->integer('duration');
             $table->integer('transit');
             $table->timestamps();
+            $table->foreign('org_id')->references('id')->on('airline_org');
+            $table->foreign('from')->references('id')->on('city');
+            $table->foreign('to')->references('id')->on('city');
         });
     }
 
