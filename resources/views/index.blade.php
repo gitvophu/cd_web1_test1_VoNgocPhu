@@ -1,4 +1,7 @@
-@include('layout.header')
+@extends('layout.master')
+@section('content')
+    
+
     <main>
         <div class="container">
             <section>
@@ -79,4 +82,8 @@
             </section>
         </div>
     </main>
-    @include('layout.footer')
+    @endsection
+    @section('script')
+    <script type="text/javascript" src="{{ asset('/assets/js/index.js') }}"></script>
+    @endsection
+    

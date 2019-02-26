@@ -23,8 +23,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Welcome message</a></li>
                         <li><a href="index.blade.php">Flights</a></li>
-                        <li><a href="login.html">Log In</a></li>
-                <li><a href="{{route('register')}}">Register</a></li>
+                        @if (Auth::check())
+                    <li style="font-weight:bold;font-size:20px;color:#000"><a href="login-get">{{Auth::user()->name}}</a></li>
+                    <li><a href="{{route('logout')}}">Logout</a></li>
+                        @else
+                            <li><a href="login-get">Log In</a></li>
+                            <li><a href="{{route('register')}}">Register</a></li>
+                        @endif
+                        
+                       
                     </ul>
                 </div>
             </div>

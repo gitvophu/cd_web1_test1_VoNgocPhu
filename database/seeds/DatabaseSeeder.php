@@ -70,5 +70,34 @@ class DatabaseSeeder extends Seeder
             'transit' => 11
         ]);
 
+// // user
+// 	id	name	email	phone	password	remember_token	created_at	updated_at
+        DB::table('users')->insert([
+            'name'=>'Khach hang 1',
+            'email'=>'kh1@gmail.com',
+            'phone'=>'kh1@gmail.com',
+            'password'=>bcrypt('kh1@gmail.com'),
+            'remember_token'=>'',
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+        ]);
+        DB::table('users')->insert([
+            'name'=>'Khach hang 2',
+            'email'=>'kh2@gmail.com',
+            'phone'=>'kh2@gmail.com',
+            'password'=>bcrypt('kh2@gmail.com'),
+            'remember_token'=>'',
+            'created_at'=>date('Y-m-d h:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+        ]);
+        DB::table('users')->insert([
+            'name'=>'Khach hang 3',
+            'email'=>'kh3@gmail.com',
+            'phone'=>'kh3@gmail.com',
+            'password'=>bcrypt('kh3@gmail.com'),
+            'remember_token'=>'',
+            'created_at'=>date('Y-m-d h:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+        ]);
     }
 }

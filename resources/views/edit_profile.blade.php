@@ -21,26 +21,27 @@
                 </p>
                 <div class="panel panel-default">
                     <div class="panel-body">
-                    <form id="register-form" role="form" method="post" action="{{route('register-post') }}">
+                    <form id="edit-form" role="form" method="post" action="{{route('edit-profile-post') }}">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label">Email Address:</label>
-                                <input id="email" name="email" type="email" class="form-control" placeholder="Enter your email address">
+                            <input disabled id="email" name="email" type="email" value="{{$user->email}}" class="form-control" placeholder="Enter your email address">
                             </div>
-                            <div class="form-group">
-                                <label class="control-label">Password:</label>
-                                <input id="password" name="password" type="password" class="form-control" placeholder="Enter your password">
-                            </div>
+                           
                             <div class="form-group">
                                 <label class="control-label">Name:</label>
-                                <input id="name" name="name" type="text" class="form-control" placeholder="Enter your name">
+                                <input id="name" name="name" type="text" class="form-control" value="{{$user->name}}" placeholder="Enter your name">
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Phone Number:</label>
-                                <input id="tel" name="tel" type="tel" class="form-control" placeholder="Enter your phone number">
+                                <input id="tel" name="tel" type="tel" class="form-control" value="{{$user->phone}}" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Password:</label>
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Enter your phone number">
                             </div>
                             <div class="text-right">
-                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                                <button id="submit" type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
