@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Welcome message</a></li>
                         <li><a href="index.blade.php">Flights</a></li>
-                        <li><a href="login.html">Log In</a></li>
+                        <li><a href="login-get">Log In</a></li>
                 <li><a href="{{route('register')}}">Register</a></li>
                     </ul>
                 </div>

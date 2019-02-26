@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class FlightBookingController extends Controller
 {
-    public function index(Request $R)
+    public function index()
     {
         $city_list = DB::table('city')->get();
 

@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/','FlightBookingController@index');
+Route::get('/','FlightBookingController@index')->name('index');
 Route::get('/flight-list','FlightListController@flight_list')->name('flight-list');
-Route::get('/register','UserController@index')->name('register');
+Route::get('/get-register','UserController@register')->name('register');
+Route::post('/register','UserController@postRegister')->name('register-post');
+Route::get('/login-get','UserController@getLogin')->name('login-get');
+Route::post('/login-post','UserController@login_post')->name('login-post');
