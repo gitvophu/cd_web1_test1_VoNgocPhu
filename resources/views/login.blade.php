@@ -8,13 +8,13 @@
                 <div class="col-md-6 col-md-push-3">
                     <h2>Log in to your account</h2>
                     @if (session()->has('fail_msg'))
-                        <p style="color:red">{{session('fail_msg')}}</p>
+                        <p style="color:red;border:1px solid red;">{{session('fail_msg')}}</p>
                     @endif
                     @if ($errors->any())
                     @foreach ($errors->all() as $item)
                         
                     @endforeach
-                        <p style="color:red">{{$item}}</p>
+                        <p style="color:red;border:1px solid red;">{{$item}}</p>
                     @endif
                     
                     <div class="panel panel-default">

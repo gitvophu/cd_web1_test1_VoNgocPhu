@@ -11,12 +11,12 @@
                     @if ($errors->any)
                         
                         @foreach ($errors->all() as $error )
-                        <p style="color:red">{{ $error}}</p>
+                        <p style="color:red;border:1px solid red;">{{ $error}}</p>
                         @endforeach
 
                     @endif
                     @if(session()->has('success'))
-                    <p style="color:green">{{session('success')}}</p>
+                    <p style="color:green;border:1px solid green;">{{session('success')}}</p>
                     @endif
                 </p>
                 <div class="panel panel-default">
@@ -41,7 +41,7 @@
                                 <input id="password" name="password" type="password" class="form-control" placeholder="Enter your phone number">
                             </div>
                             <div class="text-right">
-                                <button id="submit" type="submit" class="btn btn-primary">Update</button>
+                                <button id="" type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>

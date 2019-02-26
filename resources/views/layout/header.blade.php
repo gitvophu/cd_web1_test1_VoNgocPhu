@@ -24,7 +24,7 @@
                         <li><a href="#">Welcome message</a></li>
                         <li><a href="index.blade.php">Flights</a></li>
                         @if (Auth::check())
-                    <li style="font-weight:bold;font-size:20px;color:#000"><a href="login-get">{{Auth::user()->name}}</a></li>
+                    <li style="font-weight:bold;font-size:20px;color:#000"><a href="{{route('edit-profile')}}">{{Auth::user()->name}}</a></li>
                     <li><a href="{{route('logout')}}">Logout</a></li>
                         @else
                             <li><a href="login-get">Log In</a></li>

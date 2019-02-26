@@ -57,9 +57,15 @@ class UserController extends Controller
             'password'=>'required',
         ],[]);
         if($validator->fails()){
-            return redirect()->route('login')->withErrors($validator);
+            return redirect()->route('login-get')->withErrors($validator);
         }
         $credentials = $request->only('email','password');
+        $user_attempt = DB::table('users')->where('email',$request->email)->first();
+        if($user_attempt){
+            if($user_attempt->active == 0){
+                return redirect()->route('login-get')->withErrors(['locked_msg'=>'Tài khoản đã bị khóa, vui lòng thử lại sau']);
+            }
+        }
         if (Auth::attempt($credentials)) {
 
             DB::table('users')
@@ -69,7 +75,7 @@ class UserController extends Controller
                 ]);
             return redirect()->route('index');
         } else {
-            $user_attempt = DB::table('users')->where('email',$request->email)->first();
+            
             if($user_attempt){
                 DB::table('users')
                 ->where('email',$request->email)
@@ -77,14 +83,15 @@ class UserController extends Controller
                     'last_access'=>date('Y-m-d H:i:s'),
                     'attempt' => $user_attempt->attempt+1
                 ]);
+                if($user_attempt->attempt+1 >= 3){
+                    DB::table('users')
+                    ->where('email',$request->email)
+                    ->update([
+                        'active'=>0,
+                    ]);
+                }
             }
-            if($user_attempt->attempt+1 >= 3){
-                DB::table('users')
-                ->where('email',$request->email)
-                ->update([
-                    'active'=>0,
-                ]);
-            }
+            
             return redirect()->route('login-get')->with('fail_msg','Sai tài khoản hoặc mật khẩu');
 
         } 
