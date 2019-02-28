@@ -25,7 +25,7 @@
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label">Email Address:</label>
-                            <input disabled id="email" name="email" type="email" value="{{$user->email}}" class="form-control" placeholder="Enter your email address">
+                            <input disabled id="email" name="" type="email" value="{{$user->email}}" class="form-control" placeholder="Enter your email address">
                             </div>
                            
                             <div class="form-group">

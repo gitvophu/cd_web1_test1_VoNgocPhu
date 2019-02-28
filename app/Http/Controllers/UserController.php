@@ -61,9 +61,21 @@ class UserController extends Controller
         }
         $credentials = $request->only('email','password');
         $user_attempt = DB::table('users')->where('email',$request->email)->first();
+       
         if($user_attempt){
             if($user_attempt->active == 0){
-                return redirect()->route('login-get')->withErrors(['locked_msg'=>'Tài khoản đã bị khóa, vui lòng thử lại sau']);
+                $minutes = round((time() - strtotime( $user_attempt->last_access))/60);
+                // $minutes = $user_attempt->last_access;
+                if($minutes >= 30){
+                    DB::table('users')
+                    ->where('email',$request->email)
+                    ->update([
+                        'active' => 1
+                    ]);
+                }
+                else{
+                    return redirect()->route('login-get')->withErrors(['locked_msg'=>'Tài khoản đã bị khóa ('.$minutes.' phut), vui lòng thử lại sau']);
+                }
             }
         }
         if (Auth::attempt($credentials)) {
@@ -105,7 +117,10 @@ class UserController extends Controller
     }
 
     public function edit_profile(){
-        $user = Auth::user();
+        if(Auth::check()){
+            $user = Auth::user();
+        }
+    
         return view('edit_profile',compact('user'));
     }
     public function edit_profile_post(Request $request){
