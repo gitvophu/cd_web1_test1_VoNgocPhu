@@ -24,12 +24,19 @@ class CreateFlightBookingTable extends Migration
 － Flight class: Hạng vé (Economy Flex, Economy Standard, Business)*/
             $table->unsignedInteger('from');
             $table->unsignedInteger('to');
+            $table->unsignedInteger('flight_id');
             $table->timestamp('departure');
-            $table->integer('way_type');
-            $table->timestamp('return');
+            $table->integer('flight_type');
+            $table->timestamp('return')->nullable();
             $table->integer('total_person');
-            $table->integer('flight_class');
-            $table->timestamps();
+            $table->float('total_price');
+            $table->date('booking_date')->default('2019-04-01');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('flight_class_id');
+        
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('flight_class_id')->references('id')->on('flight_class');
+            $table->foreign('flight_id')->references('id')->on('flight');
         });
     }
 

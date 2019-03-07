@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
     $('#btn-search').on('click',function (e) {
-        e.preventDefault()
+        e.preventDefault();
         var from = $('#from option:selected').val();
         var to = $('#to option:selected').val();
         var departure = $('#departure-date').val()

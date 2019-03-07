@@ -1,20 +1,16 @@
-@include('layout.header')
+@extends('layout.master')
+@section('content')
         <main>
             <div class="container">
                 <section>
-                       
+
                     <h2>
-                            @foreach ($city_list as $city )
-                            @if ($city->id == $_GET['from'])
-                            {{$city->name}} - ({{$city->code}})
-                            @endif
-                            @endforeach
-                         <i class="glyphicon glyphicon-arrow-right"></i> @foreach ($city_list as $city )
-                            @if ($city->id == $_GET['to'])
-                            {{$city->name}} - ({{$city->code}})
-                            @endif
-                            @endforeach</h2>
-                    @foreach($flight_list as $flight)
+                           DANH SÁCH THÀNH PHỐ CÓ SÂN BAY
+                          
+                           </h2>
+                            
+                    @foreach ($city_list as $city )
+                        
                     <article>
                         <div class="panel panel-default">
                             <div class="panel-body">
@@ -23,39 +19,31 @@
                                         <h4><strong><a href="flight-detail.blade.php"></a></strong></h4>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <label class="control-label">From:</label>
-                                            <div><big class="time">{{date('h:i',strtotime( $flight->departure))}} </big></div>
+                                            <label class="control-label">Tên thành phố: {{$city['city_name']}}</label>
+                                            <div><big class="time"> </big></div>
                                                 <div><span class="place">
 
-                                                        @foreach ($city_list as $city )
-                                                        @if ($city->id == $flight->from)
-                                                        {{$city->name}}
-                                                        @endif
-                                                        @endforeach
+                                                        
                                                     </span></div>
                                             </div>
                                             <div class="col-sm-3">
-                                                <label class="control-label">To:</label>
-                                                <div><big class="time">{{date('h:i',strtotime( $flight->departure . " + $flight->duration hours"))}}</big></div>
+                                            <label class="control-label">Mã thành phố: {{$city['city_code']}}</label>
+                                                <div><big class="time"></big></div>
                                                 <div><span class="place">
-                                                        @foreach ($city_list as $city )
-                                                        @if ($city->id == $flight->to)
-                                                        {{$city->name}}
-                                                        @endif
-                                                        @endforeach</span></div>
+                                                       </span></div>
                                             </div>
                                             <div class="col-sm-3">
-                                                <label class="control-label">Duration:</label>
-                                                <div><big class="time">{{$flight->duration}}h</big></div>
-                                                <div><strong class="text-danger">{{$flight->transit}} Transit</strong></div>
+                                                <label class="control-label">Quốc gia: {{$city['nation_name']}} </label>
+                                                <div><big class="time"></big></div>
+                                                <div><strong class="text-danger"></strong></div>
                                             </div>
-                                            <div class="col-sm-3 text-right">
+                                            {{-- <div class="col-sm-3 text-right">
                                                 <h3 class="price text-danger"><strong>IDR8.265.550,00</strong></h3>
                                                 <div>
-                                                <a href="{{route('flight_detail',['flight_id'=>$flight->id])}}" class="btn btn-link">See Detail</a>
+                                                    <a href="flight-detail.blade.php" class="btn btn-link">See Detail</a>
                                                     <a href="flight-book.blade.php" class="btn btn-primary">Choose</a>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -92,3 +80,4 @@
 </body>
 
 </html>
+@endsection

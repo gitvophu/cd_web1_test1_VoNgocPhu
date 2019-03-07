@@ -37,8 +37,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="radio">
-                                            <label><input  type="radio" name="flight_type" checked value="1">One Way</label>
-                                            <label><input type="radio" name="flight_type" value="2">Return</label>
+                                            @foreach ($flight_type_list as $flight_type)
+                                        <label><input  type="radio" name="flight_type" checked value="{{$flight_type->id}}">{{$flight_type->name}}</label>
+                                            @endforeach
+                                            
+                                            
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -50,7 +53,7 @@
                                     <h4 class="form-heading">3. Search Flights</h4>
                                     <div class="form-group">
                                         <label class="control-label">Total Person: </label>
-                                        <select id="total-person" class="form-control">
+                                        <select id="total-person" class="form-control" name="total_person">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -65,10 +68,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Flight Class: </label>
-                                        <select id="flight-class" class="form-control">
-                                            <option value="1">Economy</option>
-                                            <option value="2">Business</option>
-                                            <option value="3">Premium Economy</option>
+                                        <select id="flight-class" class="form-control" name="flight_class">
+                                            @foreach ($flight_class_list as  $flight_class)
+                                                
+                                            <option value="{{$flight_class->id}}">{{$flight_class->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">

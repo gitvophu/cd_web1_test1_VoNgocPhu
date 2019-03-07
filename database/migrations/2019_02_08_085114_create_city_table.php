@@ -17,7 +17,8 @@ class CreateCityTable extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('code',100);
-            $table->timestamps();
+            $table->unsignedInteger('nation_id');
+            $table->foreign('nation_id')->references('id')->on('nation');
         });
     }
 

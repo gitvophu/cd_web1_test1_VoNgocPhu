@@ -22,7 +22,9 @@
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Welcome message</a></li>
-                        <li><a href="index.blade.php">Flights</a></li>
+                        <li><a href="#">Flights</a></li>
+                    <li><a href="{{route('city_list')}}">City</a></li>
+                        <li><a href="{{route('airport_list')}}">Airport</a></li>
                         @if (Auth::check())
                     <li style="font-weight:bold;font-size:20px;color:#000"><a href="{{route('edit-profile')}}">{{Auth::user()->name}}</a></li>
                     <li><a href="{{route('logout')}}">Logout</a></li>
