@@ -29,12 +29,15 @@ class DatabaseSeeder extends Seeder
 //flight_class
         DB::table('flight_class')->insert([
             'name' => 'Bussiness',
+            'cost_percent' => '2.5',
         ]);
         DB::table('flight_class')->insert([
             'name' => 'Economy',
+            'cost_percent' => '1',
         ]);
         DB::table('flight_class')->insert([
             'name' => 'Economy Premium',
+            'cost_percent' => '1.5',
         ]);
 
 //flight_type
@@ -185,6 +188,7 @@ class DatabaseSeeder extends Seeder
             'total_person' => '2',
             'user_id' => '1',
             'flight_class_id' => '1',
+            'total_price' => '700',
 
         ]);
         DB::table('flight_booking')->insert([
@@ -195,6 +199,7 @@ class DatabaseSeeder extends Seeder
             'flight_type' => '3',
             'return' => '2019-01-02 09:30',
             'total_person' => '4',
+            'total_price' => '1600',
             'user_id' => '3',
             'flight_class_id' => '3',
         ]);
@@ -208,24 +213,18 @@ class DatabaseSeeder extends Seeder
             'total_person' => '3',
             'user_id' => '2',
             'flight_class_id' => '2',
+            'total_price' => '1700',
         ]);
                 // transit
 
                 DB::table('transit')->insert([
-                    'transit_city_from_id' => '2',
+                    'transit_city_from_id' => '1',
                     'transit_city_to_id' => '3',
                     'transit_departure_date' => '2019-01-02 10:05:00',
                     'duration' => '7',
                     'transit_fl_id' => '1',
                 ]);
 
-                DB::table('transit')->insert([
-                    'transit_city_from_id' => '1',
-                    'transit_city_to_id' => '2',
-                    'transit_departure_date' => '2019-01-02 06:05:00',
-                    'duration' => '4',
-                    'transit_fl_id' => '1',
-                ]);
                 
         
     }

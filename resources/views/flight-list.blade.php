@@ -14,6 +14,7 @@
                             {{$city->name}} - ({{$city->code}})
                             @endif
                             @endforeach</h2>
+                            <h3 class="price text-danger"><strong>{{$total_person}} {{$flight_class_name}} ticket</strong></h3>
                     @foreach($flight_list as $flight)
                     <article>
                         <div class="panel panel-default">
@@ -50,7 +51,7 @@
                                                 <div><strong class="text-danger">{{$flight->transit}} Transit</strong></div>
                                             </div>
                                             <div class="col-sm-3 text-right">
-                                                <h3 class="price text-danger"><strong>IDR8.265.550,00</strong></h3>
+                                                <h3 class="price text-danger"><strong>${{$flight->unit_cost*$total_person*$cost_percent}}</strong></h3>
                                                 <div>
                                                 <a href="{{route('flight_detail',['flight_id'=>$flight->id])}}" class="btn btn-link">See Detail</a>
                                                     <a href="flight-book.blade.php" class="btn btn-primary">Choose</a>

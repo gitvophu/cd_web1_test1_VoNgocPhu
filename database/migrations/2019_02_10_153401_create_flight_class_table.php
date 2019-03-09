@@ -16,6 +16,7 @@ class CreateFlightClassTable extends Migration
         Schema::create('flight_class', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',100);
+            $table->float('cost_percent');
             
             
         });

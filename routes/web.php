@@ -24,6 +24,7 @@ Route::post('/login-post','UserController@login_post')->name('login-post');
 
 Route::group(['prefix'=>'city'],function(){
     Route::get('/list','CityController@showCityHavingAirport')->name('city_list');
+    Route::get('/test','CityController@test')->name('test_city');
 });
 
 Route::group(['prefix'=>'airport'],function(){

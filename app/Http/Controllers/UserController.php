@@ -34,7 +34,7 @@ class UserController extends Controller
         } else {
 
             User::register($data);
-            return redirect()->route('register')->with('success', trans('fly.REGISTER_SUCCESS'));
+            return redirect()->route('register')->with('success', trans('message.register_success'));
         }
 
     }
@@ -60,13 +60,13 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
         // dd(User::check_user_is_active($credentials)['flag']);
         if (!isset(User::check_user_is_active($credentials)['flag'])) {
-            return redirect()->route('login-get')->withErrors(['locked_msg' => 'Sai tai khoan hoac mat khau']);
+            return redirect()->route('login-get')->withErrors(['locked_msg' => trans('message.wrong_account_msg')]);
             # code...
         }
         if (!$value = User::check_user_is_active($credentials)['flag']) {
             //    dd($value);
             $minutes = User::check_user_is_active($credentials)['minutes'];
-            return redirect()->route('login-get')->withErrors(['locked_msg' => 'Tài khoản đã bị khóa (' . $minutes . ' phut), vui lòng thử lại sau']);
+            return redirect()->route('login-get')->withErrors(['locked_msg' => trans('message.lock_user_msg',['minutes'=> $minutes])]);
         } else {
             //    dd('da active');
         }

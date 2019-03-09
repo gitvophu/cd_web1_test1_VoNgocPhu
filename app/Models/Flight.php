@@ -11,7 +11,7 @@ class Flight extends Model
 {
     protected $table = 'flight';
    
-    public static function getFlightDetail($flight_id)
+    public  function getFlightDetail($flight_id)
     {
         return Flight::where('flight.id', $flight_id)
             ->leftJoin('city as city_from', 'city_from.id', 'flight.from')
@@ -22,7 +22,7 @@ class Flight extends Model
             ->toArray();
     }
 
-    public static function getIndexData()
+    public function getIndexData()
     {
 
         return [
@@ -32,7 +32,7 @@ class Flight extends Model
         ];
     }
 
-    public static function search_flight_list($data)
+    public  function search_flight_list($data)
     {
         return Flight::where([
             ['from', $data['from']],

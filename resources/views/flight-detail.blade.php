@@ -6,6 +6,7 @@
         <div class="container">
             <section>
                 <h2>{{$flight['city_from_name']}} ({{$flight['city_from_code']}})<i class="glyphicon glyphicon-arrow-right"></i> {{$flight['city_to_name']}} ({{$flight['city_to_code']}})</h2>
+                <h3 class="price text-danger"><strong>{{$total_person}} {{$flight_class_name}} ticket = ${{$unit_cost*$total_person*$cost_percent }}</strong></h3>
                 <article>
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -23,13 +24,14 @@
                                             <div><big class="time">02:55</big></div>
                                             <div><span class="place">{{$flight['city_to_name']}} ({{$flight['city_to_code']}})</span></div>
                                         </div>
+                                        
                                         <div class="col-sm-3">
                                             <label class="control-label">Duration:</label>
                                             <div><big class="time">11h 10m</big></div>
                                             <div><strong class="text-danger">1 Transit</strong></div>
                                         </div>
                                         <div class="col-sm-3 text-right">
-                                            <h3 class="price text-danger"><strong>IDR8.265.550,00</strong></h3>
+                                        
                                             <div>
                                                 <a href="flight-book.blade.php" class="btn btn-primary">Choose</a>
                                             </div>

@@ -8,7 +8,7 @@ class Transit extends Model
 {
     protected $table = 'transit';
 
-    public static function getTransitFlightList($flight_id)
+    public function getTransitFlightList($flight_id)
     {
         $transit_flight_list = Transit::where('transit.transit_fl_id', $flight_id)
             ->leftJoin('flight', 'flight.id', 'transit.transit_fl_id')
