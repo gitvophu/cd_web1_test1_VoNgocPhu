@@ -30,4 +30,6 @@ class AirportController extends Controller
         return view('airline_org_list',$this->data_view);
 
     }
+
+    
 }

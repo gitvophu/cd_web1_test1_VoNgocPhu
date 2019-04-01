@@ -33,4 +33,14 @@ Route::group(['prefix'=>'airport'],function(){
 
 Route::group(['prefix'=>'flight'],function(){
     Route::get('/detail/{flight_id}','FlightListController@showFlightDetail')->name('flight_detail');
+    Route::get('/create','FlightListController@create')->name('flight_create');
+    Route::post('/store','FlightListController@store')->name('flight_store');
+});
+
+Route::group(['prefix'=>'flight-booking'],function(){
+    Route::get('/{flight_id}','FlightBookingController@checkout')->name('checkout');
+    Route::post('/book','FlightBookingController@book')->name('book');
+});
+Route::group(['prefix'=>'airline-org'],function(){
+    Route::get('/thong-ke','AirlineOrgController@thong_ke')->name('thong_ke');
 });

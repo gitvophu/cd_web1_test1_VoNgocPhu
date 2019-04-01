@@ -17,11 +17,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.blade.php" class="navbar-brand">Worldskills Travel</a>
+                <a href="{{url('/')}}" class="navbar-brand">Worldskills Travel</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Welcome message</a></li>
+                    <li><a href="{{route('flight_create')}}">Create new flight</a></li>
                         <li><a href="#">Flights</a></li>
                     <li><a href="{{route('city_list')}}">City</a></li>
                         <li><a href="{{route('airport_list')}}">Airport</a></li>

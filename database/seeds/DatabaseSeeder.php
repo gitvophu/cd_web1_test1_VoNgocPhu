@@ -15,14 +15,17 @@ class DatabaseSeeder extends Seeder
         DB::table('nation')->insert([
             'name' => 'Việt Nam',
             'code' => 'VN',
+            'nations_id'=>'1::3'
         ]);
         DB::table('nation')->insert([
-            'name' => 'Korean',
+            'name' => 'Mỹ',
             'code' => 'KR',
+            'nations_id'=>'2::3'
         ]);
         DB::table('nation')->insert([
-            'name' => 'Qatar',
+            'name' => 'Nhật',
             'code' => 'QT',
+            'nations_id'=>'1::2::3'
         ]);
         
 
@@ -50,6 +53,7 @@ class DatabaseSeeder extends Seeder
 
 
         // city
+        
         DB::table('city')->insert([
             'name' => 'Sài Gòn',
             'code' => 'SGN',
@@ -65,7 +69,16 @@ class DatabaseSeeder extends Seeder
             'code' => 'DNG',
             'nation_id' => '1',
         ]);
-
+        DB::table('city')->insert([
+            'name' => 'Los Angeles',
+            'code' => 'LAG',
+            'nation_id' => '2',
+        ]);
+        DB::table('city')->insert([
+            'name' => 'Tokyo',
+            'code' => 'TOK',
+            'nation_id' => '3',
+        ]);
         DB::table('airline_org')->insert([
             'name' => 'VietNam Airlines',
             'code' => 'VNAL',
@@ -80,6 +93,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jetstars',
             'code' => 'KAL',
             'nation_id' => '1',
+        ]);
+        DB::table('airline_org')->insert([
+            'name' => 'Jetstars 2',
+            'code' => 'KAL',
+            'nation_id' => '2',
         ]);
         //airport
         DB::table('airport')->insert([
@@ -97,7 +115,21 @@ class DatabaseSeeder extends Seeder
             'code' => 'DNA',
             'city_id' => '3',
         ]);
-
+        DB::table('airport')->insert([
+            'name' => 'Da Nang airport',
+            'code' => 'DNA',
+            'city_id' => '3',
+        ]);
+        DB::table('airport')->insert([
+            'name' => 'Los Angeles Airport',
+            'code' => 'LOS',
+            'city_id' => '4',
+        ]);
+        DB::table('airport')->insert([
+            'name' => 'Tokyo Airport',
+            'code' => 'TOKA',
+            'city_id' => '5',
+        ]);
 //            org_id    from    to    duration    transit
         DB::table('flight')->insert([
             'org_id' => 1,
@@ -179,12 +211,9 @@ class DatabaseSeeder extends Seeder
         // `id`, `from`, `to`, `flight_id`, `departure`, `flight_type`, `return`, `total_person`, `user_id`, `flight_class_id`, `created_at`, `updated_at`
         DB::table('flight_booking')->insert([
 
-            'from' => '1',
-            'to' => '2',
+           
             'flight_id' => '1',
-            'departure' => '2019-01-01 09:30',
             'flight_type' => '1',
-            'return' => '2019-01-02 09:30',
             'total_person' => '2',
             'user_id' => '1',
             'flight_class_id' => '1',
@@ -192,24 +221,16 @@ class DatabaseSeeder extends Seeder
 
         ]);
         DB::table('flight_booking')->insert([
-            'from' => '1',
-            'to' => '2',
             'flight_id' => '1',
-            'departure' => '2019-01-01 09:30',
             'flight_type' => '3',
-            'return' => '2019-01-02 09:30',
             'total_person' => '4',
             'total_price' => '1600',
             'user_id' => '3',
             'flight_class_id' => '3',
         ]);
         DB::table('flight_booking')->insert([
-            'from' => '1',
-            'to' => '2',
             'flight_id' => '1',
-            'departure' => '2019-01-01 09:30',
             'flight_type' => '1',
-            'return' => '2019-01-02 09:30',
             'total_person' => '3',
             'user_id' => '2',
             'flight_class_id' => '2',

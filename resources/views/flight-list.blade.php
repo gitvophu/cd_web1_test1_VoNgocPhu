@@ -51,10 +51,10 @@
                                                 <div><strong class="text-danger">{{$flight->transit}} Transit</strong></div>
                                             </div>
                                             <div class="col-sm-3 text-right">
-                                                <h3 class="price text-danger"><strong>${{$flight->unit_cost*$total_person*$cost_percent}}</strong></h3>
+                                                <h3 class="price text-danger"><strong>${{$flight->unit_cost*$total_person*$cost_percent*$extra_money}}</strong></h3>
                                                 <div>
                                                 <a href="{{route('flight_detail',['flight_id'=>$flight->id])}}" class="btn btn-link">See Detail</a>
-                                                    <a href="flight-book.blade.php" class="btn btn-primary">Choose</a>
+                                                <a href="{{route('checkout',['flight_id'=>$flight->id])}}" class="btn btn-primary">Choose</a>
                                                 </div>
                                             </div>
                                         </div>

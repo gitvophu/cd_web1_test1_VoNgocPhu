@@ -22,12 +22,9 @@ class CreateFlightBookingTable extends Migration
 － Return: ngày về (Yêu cầu chọn khi đi khứ hồi)
 － Total Person: Số người đi
 － Flight class: Hạng vé (Economy Flex, Economy Standard, Business)*/
-            $table->unsignedInteger('from');
-            $table->unsignedInteger('to');
+            
             $table->unsignedInteger('flight_id');
-            $table->timestamp('departure');
             $table->integer('flight_type');
-            $table->timestamp('return')->nullable();
             $table->integer('total_person');
             $table->float('total_price');
             $table->date('booking_date')->default('2019-04-01');
